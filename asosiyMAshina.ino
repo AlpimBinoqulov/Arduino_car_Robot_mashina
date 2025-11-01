@@ -1,0 +1,55 @@
+int motor1x = 4;
+int motor1y = 5;
+int motor2x = 8;
+int motor2y = 7;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(motor1x,OUTPUT);
+  pinMode(motor1y,OUTPUT);
+  pinMode(motor2x,OUTPUT);
+  pinMode(motor2y,OUTPUT);
+  digitalWrite(motor1x,HIGH);
+  digitalWrite(motor1y,HIGH);
+  digitalWrite(motor2x,HIGH);
+  digitalWrite(motor2y,HIGH);
+}
+void loop() {
+   
+    if(Serial.available()){
+    char kirish = Serial.read();
+    Serial.println(kirish);
+    switch(kirish){
+      case '1':
+      digitalWrite(motor1x,HIGH);
+      digitalWrite(motor1y,LOW);
+      digitalWrite(motor2x,HIGH);
+      digitalWrite(motor2y,HIGH);
+      break;
+      case '2':
+      digitalWrite(motor1x,LOW);
+      digitalWrite(motor1y,HIGH);
+      digitalWrite(motor2x,HIGH);
+      digitalWrite(motor2y,HIGH);
+      break;
+      case '3':
+      digitalWrite(motor1x,HIGH);
+      digitalWrite(motor1y,HIGH);
+      digitalWrite(motor2x,LOW);
+      digitalWrite(motor2y,HIGH);
+      break;
+      case '4':
+      digitalWrite(motor1x,HIGH);
+      digitalWrite(motor1y,HIGH);
+      digitalWrite(motor2x,HIGH);
+      digitalWrite(motor2y,LOW );
+      break;
+       case '5':
+       digitalWrite(motor1x,HIGH);
+       digitalWrite(motor1y,HIGH);
+       digitalWrite(motor2x,HIGH);
+       digitalWrite(motor2y,HIGH);
+        break;
+       }
+  }
+  }
